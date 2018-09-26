@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "cab7ea37-3018-4d6a-9b50-fc01bd355eec",
+		"name": "Eindopdracht calls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request bierrapport",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a39f6e16-bf05-416e-9d9d-fb172d7d1b68",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"imageName\", jsonData.bierRapportName);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"street\":\"zuiderkruis\",\n\t\"houseNumber\":\"6\",\n\t\"residence\":\"amstelveen\"\n}"
+				},
+				"url": {
+					"raw": "https://requestbierrapport.azurewebsites.net/api/requestbierrapport",
+					"protocol": "https",
+					"host": [
+						"requestbierrapport",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"requestbierrapport"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch bierrapport",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2b031bf3-cb17-4ad9-9498-4b5ca3990183",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"imageName\":\"{{imageName}}\"\n}"
+				},
+				"url": {
+					"raw": "https://fetchbierrapport.azurewebsites.net/api/FetchBierRapport",
+					"protocol": "https",
+					"host": [
+						"fetchbierrapport",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"FetchBierRapport"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
