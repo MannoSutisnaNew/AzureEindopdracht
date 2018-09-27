@@ -17,8 +17,6 @@ namespace ImageQueue.Helpers
             CloudStorageAccount storageAccount = null;
             CloudBlobContainer cloudBlobContainer = null;
             string storageConnectionString = Environment.GetEnvironmentVariable("StorageConnectionString");
-            //string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=eindopdracht;AccountKey=6mIYTFe2w7/roeqmOqdMo8jIFsyvnDZ3vZanDH1viL3uokZz7WBHazA2WnlKH8immWlc24P7MnhT9KvHdfrRNA==;EndpointSuffix=core.windows.net";
-            //string storageConnectionString = "UseDevelopmentStorage=true";
             // Check whether the connection string can be parsed.
             if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
             {
